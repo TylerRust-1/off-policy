@@ -86,14 +86,12 @@ def main(args):
         os.makedirs(str(run_dir))
 
     if all_args.use_wandb:
-        # init wandb
         run = wandb.init(config=all_args,
-                         project=all_args.env_name,
-                         entity=all_args.user_name,
+                         project="MARL",
                          notes=socket.gethostname(),
                          name=str(all_args.algorithm_name) + "_" +
-                         str(all_args.experiment_name) +
-                         "_seed" + str(all_args.seed),
+                              str(all_args.map_name) +
+                              "_seed" + str(all_args.seed),
                          group=all_args.map_name,
                          dir=str(run_dir),
                          job_type="training",
